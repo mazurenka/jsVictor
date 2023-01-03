@@ -1,22 +1,44 @@
+const todoListId_1 = '12df-gh67'
+const todoListId_2 = '12df-gh68'
+
 const todoLists = [
     {
-        id: 1,
+        id: todoListId_1, //'12df-gh67'
         title: 'What to learn',
     },
     {
-        id: 2,
+        id: todoListId_2,
         title: 'What to buy',
     },
 ]
 
+const getKey = () => 'name'
+
 const tasks = {
-    1: [
+    [todoListId_1]: [                  //'12df-gh67'
         {name: 'HTML', isDone: true},
         {name: 'CSS', isDone: false}
     ],
-    2: [
+    [todoListId_2]: [                  //'12df-gh68'
         {name: 'Meat', isDone: false},
         {name: 'Fish', isDone: false}
-    ]
+    ],
+    [10 + 30]: [], //40
+    [getKey()]: [],  //'name'
+    "user address": [],
 }
+
+console.log(tasks[todoListId_1])
+console.log(tasks[todoListId_1][0])
+console.log(tasks[todoListId_1][0].name)
+
+console.log(tasks[todoListId_1].filter((t) => t.name !== 'HTML'))
+
+console.log([...tasks[todoListId_1], {name: 'React', isDone: true}])
+console.log(tasks[todoListId_1])
+console.log([tasks["user address"]])
+
+
+
+
 
