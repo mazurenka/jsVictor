@@ -38,6 +38,19 @@ console.log([...tasks[todoListId_1], {name: 'React', isDone: true}])
 console.log(tasks[todoListId_1])
 console.log([tasks["user address"]])
 
+//reduce: [1, 2, 3, 4]
+
+const nums = [1, 2, 3, 4]
+/*console.log(nums.reduce((acc, el) => {
+    return acc + el
+}, 0))*/
+console.log(nums.reduce((acc, el) => acc + el))
+
+//1, 2 => 3
+//3, 3 => 6
+//6, 4 => 10
+// => 10
+
 
 
 
