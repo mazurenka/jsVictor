@@ -85,8 +85,14 @@ let students = [
     },
 ];
 
-console.log(students.reduce((acc, el) => acc + el.scores , 0))
+console.log(students.reduce((acc, el) => acc + el.scores, 0))
 console.log(students.reduce((acc, el) => acc.scores > el.scores ? acc : el))
+console.log(students.reduce((acc, el) => {
+    if (el.scores >= 100) {
+        acc.push(el)
+    }
+    return acc
+}, []))
 
 
 
