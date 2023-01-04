@@ -87,12 +87,50 @@ let students = [
 
 console.log(students.reduce((acc, el) => acc + el.scores, 0))
 console.log(students.reduce((acc, el) => acc.scores > el.scores ? acc : el))
-console.log(students.reduce((acc, el) => {
+console.log(students.reduce((acc, el) => { //filter
     if (el.scores >= 100) {
         acc.push(el)
     }
     return acc
 }, []))
+
+// from array to object
+
+const newStudents = {
+    '1': {
+        name: 'Bob',
+        age: 22,
+        isMarried: true,
+        scores: 85,
+    },
+    '2': {
+        id: 2,
+        name: 'Alex',
+        age: 21,
+        isMarried: true,
+        scores: 89,
+    },
+}
+
+console.log(students.reduce((acc, el) => {
+    acc[el.id] = {...el}
+    delete acc[el.id].id
+    return acc
+}, {}))
+
+const reduce = (array, func, startAcc) => {
+    let acc = startAcc ? startAcc : array[0]
+    for (let i = startAcc ? 0 : 1; i < array.length; i++) {
+        acc = func(acc, array[i])
+    }
+    return acc
+}
+
+console.log(reduce(students, (acc, el) => {
+    acc[el.id] = {...el}
+    delete acc[el.id].id
+    return acc
+}, {}))
 
 
 
